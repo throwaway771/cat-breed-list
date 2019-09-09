@@ -1,8 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { Select } from 'antd';
-import { Input } from 'antd';
-import { Table } from 'antd';
+import { Select, Input, Table } from 'antd';
 
 const { Search } = Input;
 const { Option } = Select;
@@ -41,26 +39,21 @@ const Breeds = ({ breeds, origins, handleSearch, handleSearchChange, handleSelec
     <div>
       <center><h1>Cat Breed List</h1></center>
         <div className="App">
-          <div style={{padding:'5px'}}>
         <Select
             mode="multiple"
             value={selectValue}
-            style={{ width: '30%' }}
+            style={{ width: '30%', margin: '1%' }}
             placeholder="Filter by origin"
-            onChange={handleSelectChange}
-        >
+            onChange={handleSelectChange}>
             {children}
         </Select>
-        </div>
-        <div style={{padding:'5px'}}>
         <Search
           value={searchValue}
           placeholder="Search by name"
           onChange={(evt) => handleSearchChange(evt.target.value)}
           onSearch={handleSearch}
-          style={{ width: '30%' }}
+          style={{ width: '30%', margin: '1%' }}
         />
-        </div>
         <Table columns={columns} dataSource={breeds} />
       </div>
     </div>
