@@ -2,10 +2,33 @@ import React from 'react';
 import '../App.css';
 import { Select } from 'antd';
 import { Input } from 'antd';
+import { Table } from 'antd';
 
 const { Search } = Input;
-
 const { Option } = Select;
+
+const columns = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+    key: 'name'
+  },
+  {
+    title: 'Description',
+    dataIndex: 'description',
+    key: 'description'
+  },
+  {
+    title: 'Origin',
+    dataIndex: 'origin',
+    key: 'origin'
+  },
+  {
+    title: 'Temperament',
+    dataIndex: 'temperament',
+    key: 'temperament'
+  }
+];
 
 const Breeds = ({ breeds, origins, handleSearch, handleSearchChange, handleSelectChange, selectValue, searchValue }) => {
 
@@ -38,29 +61,8 @@ const Breeds = ({ breeds, origins, handleSearch, handleSearchChange, handleSelec
           style={{ width: '30%' }}
         />
         </div>
+        <Table columns={columns} dataSource={breeds} />
       </div>
-      <div style={{margin: 15}}>
-      <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Temperament</th>
-                <th scope="col">Origin</th>
-            </tr>
-        </thead>
-        <tbody>
-            {breeds.map((breed) => (
-            <tr>
-                <td>{breed.name}</td>
-                <td>{breed.description}</td>
-                <td>{breed.temperament}</td>
-                <td>{breed.origin}</td>
-            </tr>
-            ))}
-        </tbody>
-        </table>
-        </div>
     </div>
   )
 };
